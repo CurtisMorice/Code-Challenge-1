@@ -1,0 +1,17 @@
+#colorBox {
+    background-color: red;
+}
+
+#generate {
+    background-color: red;
+    width: 20%;
+    height: 100%;
+}
+
+.swap {
+    background-color: green;
+}
+
+.delete {
+    background-color: firebrick;
+}
