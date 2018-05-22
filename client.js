@@ -5,38 +5,38 @@ $(document).ready(readyNow);
 function readyNow() {
     console.log('JQ');
     $('#generate').on('click', pCounter);
-
-    $('.swap').on('click', swap);
-    //$('.delete').on('click', deleteButton);
+    $('#colorBox').on('click', '.swap', swap);
+    $('#colorBox').on('click', '.delete', deleteButton);
 
 
 }
 let p = 0;
-//$('#colorBox').css('background-color', 'red');
-
 
 function pCounter() {
     p++;
-    $('#pCount').empty();
-    $('#pCount').append(p);
-    $('#colorBox').css('background-color', 'red');
+
+    let outPutString = `<div class="red"><p id="pCount">${p}</p> <button class="swap">SWAP</button><button class="delete">Delete</button> </div>`;
+    $('#colorBox').append(outPutString);
+
 }
 
 function swap() {
-    if ($('.swap').on('click')) {
-        $('#colorBox').css('background-color', 'yellow');
+    if ($(this.parentNode).hasClass('yellow')) {
+        $(this.parentNode).removeClass('yellow').addClass('red');
     } else {
-        return true;
+
+        $(this.parentNode).removeClass('red').addClass('yellow');
+
+
+
+
     }
 
 }
 
-/*unction deleteButton() {
-    const deleteBox = $(".delete").val();
-    if ()
-
-
-}*/
+function deleteButton() {
+    $(this.parentNode).remove();
+}
 
 /*Instructions
 
@@ -57,10 +57,10 @@ Follow the steps below to complete the code challenge:
    !!!!In a CSS file, any <div> created using the "Generate" button should start with 
     red as it's background-color.
 
-    Clicking a "Swap" <button> should change its parent background-color from red to 
+    !!!!Clicking a "Swap" <button> should change its parent background-color from red to 
     yellow.
 
-    Clicking the "Swap" <button> on a yellow div should turn the background-color to 
+    !!!!!Clicking the "Swap" <button> on a yellow div should turn the background-color to 
     red.
 
     Clicking a "Delete" <button> should remove its parent <div>.
